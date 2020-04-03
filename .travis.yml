@@ -14,8 +14,8 @@ after_success:
   - docker login -u "Docker_Id" -p "$Docker_password" docker.io
   # - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
   #take images and push to dockerhub
-  - docker push clientprod
-  - docker push nginxprod
-  - docker push workerprod
-  - docker push serverprod
+  - docker push clientprod:latest
+  - docker push nginxprod:latest
+  - docker push workerprod:latest
+  - docker push serverprod:latest
 

@@ -6,15 +6,15 @@ before_install:
 script:
   - docker run testme npm run testCI
 after_success:
-  - docker build -t pragya5833/clientprod ./client
-  - docker build -t pragya5833/nginxprod ./nginx
-  - docker build -t pragya5833/workerprod  ./worker
-  - docker build -t pragya5833/serverprod ./server
+  - docker build -t pragya5833/clientprod:latest ./client
+  - docker build -t pragya5833/nginxprod:latest ./nginx
+  - docker build -t pragya5833/workerprod:latest ./worker
+  - docker build -t pragya5833/serverprod:latest ./server
   #login to docker cli
   - docker login -u "Docker_Id" -p "$Docker_password" docker.io
   # - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
   #take images and push to dockerhub
-  - docker push pragya5833/clientprod
-  - docker push pragya5833/nginxprod
-  - docker push pragya5833/workerprod
-  - docker push pragya5833/serverprod
+  - docker push pragya5833/clientprod:latest
+  - docker push pragya5833/nginxprod:latest
+  - docker push pragya5833/workerprod:latest
+  - docker push pragya5833/serverprod:latest

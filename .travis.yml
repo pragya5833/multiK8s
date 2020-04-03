@@ -14,7 +14,7 @@ after_success:
   - docker login -u "Docker_Id" -p "$Docker_password" docker.io
   # - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
   #take images and push to dockerhub
-  - docker push pragya5833/clientprod:1.0
-  - docker push pragya5833/nginxprod:1.0
-  - docker push pragya5833/workerprod:1.0
-  - docker push pragya5833/serverprod:1.0
+  - docker push pragya5833/clientprod
+  - docker push pragya5833/nginxprod
+  - docker push pragya5833/workerprod
+  - docker push pragya5833/serverprod

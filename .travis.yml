@@ -1,20 +1,20 @@
 sudo: required
 services:
- - docker
+  - docker
 before_install:
- - docker build -t testme -f ./client/Dockerfile.dev ./client
+  - docker build -t testme -f ./client/Dockerfile.dev ./client
 script:
- - docker run testme npm run testCI
+  - docker run testme npm run testCI
 after_success:
- - docker build -t clientprod ./client
- - docker build -t nginxprod ./nginx
- - docker build -t workerprod  ./worker
- - docker build -t serverprod ./server
-#login to docker cli
-- echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
-#take images and push to dockerhub
-- docker push clientprod
-- docker push nginxprod
-- docker push workerprod
-- docker push serverprod
+  - docker build -t clientprod ./client
+  - docker build -t nginxprod ./nginx
+  - docker build -t workerprod  ./worker
+  - docker build -t serverprod ./server
+  #login to docker cli
+  - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
+  #take images and push to dockerhub
+  - docker push clientprod
+  - docker push nginxprod
+  - docker push workerprod
+  - docker push serverprod
 

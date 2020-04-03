@@ -6,10 +6,10 @@ before_install:
 script:
   - docker run testme npm run testCI
 after_success:
-  - docker build -t clientprod ./client
-  - docker build -t nginxprod ./nginx
-  - docker build -t workerprod  ./worker
-  - docker build -t serverprod ./server
+  - docker build -t pragya5833/clientprod ./client
+  - docker build -t pragya5833/nginxprod ./nginx
+  - docker build -t pragya5833/workerprod  ./worker
+  - docker build -t pragya5833/serverprod ./server
   #login to docker cli
   - docker login -u "Docker_Id" -p "$Docker_password" docker.io
   # - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin

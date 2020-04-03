@@ -11,7 +11,8 @@ after_success:
   - docker build -t workerprod  ./worker
   - docker build -t serverprod ./server
   #login to docker cli
-  - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
+  - docker login -u "Docker_Id" -p "$Docker_password" docker.io
+  # - echo "$Docker_password" | docker login -u "$Docker_Id" --password-stdin
   #take images and push to dockerhub
   - docker push clientprod
   - docker push nginxprod

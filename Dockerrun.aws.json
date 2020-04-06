@@ -1,0 +1,37 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "pragya5833/clientprod:latest",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name":"server",
+            "image": "pragya5833/serverprod:latest",
+            "essential":false,
+            "hostname": "api"
+        },
+        {
+            "name": "worker",
+            "image": "pragya5833/workerprod:latest",
+            "hostname": "worker",
+            "essential":false
+        },
+        {
+            "name": "nginx",
+            "image": "pragya5833/nginxprod:latest",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            "links":["client","server"]
+        }
+
+    ]
+}
